@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<title>title</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script>
+
+var btn = document.querySelector("#refresh");
+btn.addEventListener("click", function() {
+    
+    location.reload();
+});
+
+</script>
+
+</head>
+<body>
+    <div>
+        <!-- As a heading -->
+<nav class="navbar bg-primary">
+    <span class="navbar-sm"><H2>Gerador de QR Code Roberta</H2></span>
+  </nav><br><br>
+        
+        <form action="/send" method="post">
+            {% csrf_token %}
+          <center>  <h3 id="h1">Digite sua url:<br> <input class="form-group" type="text" size="40px" name="data" ></h3> 
+           
+            <input class="btn btn-primary btn-sm" type="submit" value="GERAR"> <button class="btn btn-danger btn-sm " id="refresh">LIMPAR</button>
+           
+        </form>
+    </div>
+    <div> 
+        {% if data %}
+        
+       <center> <h5>Seu QR Code é:</h5>
+            <img src='{{filename}}'> </center> 
+            <center><a href="{{filename}}" download="GFG">
+                <button  class="btn btn-success btn-sm" type="button">BAIXAR QRCODE</button>
+                </a></center>
+            
+        {% endif %}
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
