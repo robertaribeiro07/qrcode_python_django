@@ -1,1 +1,6 @@
-# qrcode_python_django
+# QRCODE PYTHON COM DJANGO
+
+## USEI FRAMEWORKS
+ - Django
+ - image
+ - qrcode
