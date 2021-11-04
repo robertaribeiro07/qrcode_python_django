@@ -1,0 +1,1 @@
+# qrcode_python_django
